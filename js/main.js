@@ -18,6 +18,7 @@ const difficolta = document.getElementById("difficulty");
 const play = document.getElementById("play");
 const score = document.querySelector(".score");
 let lose = false;
+
 //funzione che ci ritornerà il valore corrente della difficoltà che è stata selezionata
 function selectDifficulty(){
     const difficoltaValue = difficolta.value;
@@ -59,7 +60,8 @@ function createGrid(xCol, yRow) {
       //inserisco la cella nel container campoMinato
       campoMinato.append(cell);
 
-      //verifico se la cella è stata clickata e in quel caso gli aggiungo la classe attivo 
+      //verifico se la cella è stata clickata e in quel caso gli aggiungo la classe attivo
+      //ed inoltre gli rimove la classe counted
       cell.addEventListener("click" , function(){
        if(!lose){   
         cell.classList.add("attivo");
@@ -68,6 +70,7 @@ function createGrid(xCol, yRow) {
             count++;
             
         }
+
         cell.innerText = this.dataset.indice;
         if(bombe.includes(+this.dataset.indice)){
             if(!this.classList.contains("bomb")){
@@ -93,7 +96,13 @@ function createGrid(xCol, yRow) {
     });
     cell.addEventListener('contextmenu', (e) => {
         e.preventDefault();
+        if(bombe.includes(+cell.dataset.indice)){
         alert('FLAG');
+        cell.style.background = "purple";
+        cell.innerText = "FLAG";
+        }
+        else
+        alert("NON PUOI USARE IL FLAG QUI");
     });
 
 
