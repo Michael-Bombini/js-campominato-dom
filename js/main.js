@@ -105,6 +105,7 @@ function createGrid(xCol, yRow) {
             if(bombe.includes(i)){
                 nodi[i].classList.add("attivo")
                 nodi[i].classList.add("bomb");
+                nodi[i].innerText = i+1;
             }
 
           }
