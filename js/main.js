@@ -28,6 +28,7 @@ function selectDifficulty(){
 
 //funzione che genererà la griglia effettivamente
 function createGrid(xCol, yRow) {
+    lose = false;
     //variabili usate per contare le caselle cliccate
     //e quante di loro cliccate sono bombe
     let count = 0 ;
