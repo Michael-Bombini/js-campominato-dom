@@ -53,7 +53,8 @@ function createGrid(xCol, yRow) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
     
-      //inserisco l'indice come testo del div cella
+      //inserisco l'indice come dataset e aggiungo la classe counted 
+      //per poi rimuoverla successivamente
       cell.dataset.indice = `${i}`;
       cell.classList.add("counted");
     
@@ -70,30 +71,40 @@ function createGrid(xCol, yRow) {
             count++;
             
         }
-
+        //inserisco il testo nella cella recuperandolo dal dataset
         cell.innerText = this.dataset.indice;
+        //se l'array di bombe include questo indice ed inoltre 
+        //non contiene già la classe BOMBA allora gli aggiungo la classe ed effettuo tutti i controlli + condizioni
         if(bombe.includes(+this.dataset.indice)){
             if(!this.classList.contains("bomb")){
             alert("Hai beccato una bomba hai perso");
             contabombe++;
             alert(`I punti totalizzati sono ${count-contabombe} `);
             alert("Per iniziare una nuova partita ricarica");
-            }
             this.classList.add("bomb");
             lose = true;
+        }
+        
+          
             
         }
 
-
+        //condizione per vincere la partita
         if(count-contabombe===maxPunti)
             alert("hai vinto");
 
+        //aggiorno di volta in volta il punteggio nell' html
         score.innerHTML = count-contabombe;
     }
 
 
 
     });
+    
+
+    //ascolto l'evento tasto destro e se c'è na bomba li aggiungo la classe flag
+    //che a sua volta metterà l'immagine della bandiera nella cella
+    //se non si può usare il flag allora sarà stampato un messaggio non puoi usare il flag qui
     cell.addEventListener('contextmenu', (e) => {
         e.preventDefault();
         if(bombe.includes(+cell.dataset.indice)){
