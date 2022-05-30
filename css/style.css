@@ -1,0 +1,41 @@
+
+
+.game {
+    background-color: aquamarine;
+    height: 80vh;
+    position: relative;
+}
+
+
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+.attivo {
+    background-color: #6495F1;
+    color: #fff;
+}
+
+
+
+.bomb {
+    background-color: red;
+}
+
+
+.score {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 40%;
+    left: 20%;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+}
