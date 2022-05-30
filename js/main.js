@@ -68,10 +68,11 @@ function createGrid(xCol, yRow) {
         }
         cell.innerText = this.dataset.indice;
         if(bombe.includes(+this.dataset.indice)){
+            if(!this.classList.contains("bomb")){
             alert("Hai beccato una bomba hai perso");
-            if(!this.classList.contains("bomb"))
             contabombe++;
             alert(`I punti totalizzati sono ${count-contabombe} `);
+            }
             this.classList.add("bomb");
             
         }
