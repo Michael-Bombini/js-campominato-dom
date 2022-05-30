@@ -17,7 +17,7 @@ const campoMinato = document.querySelector(".campo-minato");
 const difficolta = document.getElementById("difficulty");
 const play = document.getElementById("play");
 const score = document.querySelector(".score");
-
+let lose = false;
 //funzione che ci ritornerà il valore corrente della difficoltà che è stata selezionata
 function selectDifficulty(){
     const difficoltaValue = difficolta.value;
@@ -74,6 +74,7 @@ function createGrid(xCol, yRow) {
             alert(`I punti totalizzati sono ${count-contabombe} `);
             }
             this.classList.add("bomb");
+            lose = true;
             
         }
 
@@ -86,7 +87,8 @@ function createGrid(xCol, yRow) {
     });
     }
 
-
+    if(lose)
+        return;
 
 }
   
