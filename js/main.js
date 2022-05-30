@@ -91,6 +91,10 @@ function createGrid(xCol, yRow) {
 
 
     });
+    cell.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        alert('FLAG');
+    });
 
 
 
