@@ -74,6 +74,7 @@ function createGrid(xCol, yRow) {
             alert("Hai beccato una bomba hai perso");
             contabombe++;
             alert(`I punti totalizzati sono ${count-contabombe} `);
+            alert("Per iniziare una nuova partita ricarica");
             }
             this.classList.add("bomb");
             lose = true;
@@ -86,6 +87,9 @@ function createGrid(xCol, yRow) {
 
         score.innerHTML = count-contabombe;
     }
+
+
+
     });
 
 
