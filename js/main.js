@@ -103,6 +103,7 @@ function createGrid(xCol, yRow) {
           let nodi = campoMinato.childNodes
           for(let i = 0 ; i < nodi.length ; i++){
             if(bombe.includes(i)){
+                nodi[i].classList.add("attivo")
                 nodi[i].classList.add("bomb");
             }
 
