@@ -60,6 +60,7 @@ function createGrid(xCol, yRow) {
 
       //verifico se la cella è stata clickata e in quel caso gli aggiungo la classe attivo 
       cell.addEventListener("click" , function(){
+       if(!lose){   
         cell.classList.add("attivo");
         if(cell.classList.contains("counted")){
             cell.classList.remove("counted")
@@ -83,12 +84,15 @@ function createGrid(xCol, yRow) {
             alert("hai vinto");
 
         score.innerHTML = count-contabombe;
-
+    }
     });
+
+
+
     }
 
-    if(lose)
-        return;
+
+
 
 }
   
