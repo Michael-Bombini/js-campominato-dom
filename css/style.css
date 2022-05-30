@@ -39,3 +39,10 @@
     color: #000;
     font-weight: bold;
 }
+
+
+.cell.flag {
+    background-image: url(../img/flag.png);
+    background-position: center;
+    background-size: cover;
+}

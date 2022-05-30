@@ -98,8 +98,7 @@ function createGrid(xCol, yRow) {
         e.preventDefault();
         if(bombe.includes(+cell.dataset.indice)){
         alert('FLAG');
-        cell.style.background = "purple";
-        cell.innerText = "FLAG";
+        cell.classList.add("flag");
         }
         else
         alert("NON PUOI USARE IL FLAG QUI");
