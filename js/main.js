@@ -29,6 +29,7 @@ function selectDifficulty(){
 
 //funzione che genererà la griglia effettivamente
 function createGrid(xCol, yRow) {
+
     lose = false;
     //variabili usate per contare le caselle cliccate
     //e quante di loro cliccate sono bombe
@@ -64,6 +65,9 @@ function createGrid(xCol, yRow) {
       //verifico se la cella è stata clickata e in quel caso gli aggiungo la classe attivo
       //ed inoltre gli rimove la classe counted
       cell.addEventListener("click" , function(){
+
+        //condizione per impedire se si ha perso di cliccare altre caselle
+        //bonus .1)
        if(!lose){   
         cell.classList.add("attivo");
         if(cell.classList.contains("counted")){
@@ -85,8 +89,17 @@ function createGrid(xCol, yRow) {
             lose = true;
         }
         
-          
-            
+
+        //bonus .2) non funzionante 
+        /*
+          for(let i = 0 ; i < 16 ; i++){
+            let indexBomba = bombe[i];
+            cell[indexBomba].classList.add("bomb");
+          }
+        */
+
+
+
         }
 
         //condizione per vincere la partita
@@ -102,7 +115,7 @@ function createGrid(xCol, yRow) {
     });
     
 
-    //ascolto l'evento tasto destro e se c'è na bomba li aggiungo la classe flag
+    //bonus .4) ascolto l'evento tasto destro e se c'è na bomba li aggiungo la classe flag
     //che a sua volta metterà l'immagine della bandiera nella cella
     //se non si può usare il flag allora sarà stampato un messaggio non puoi usare il flag qui
     cell.addEventListener('contextmenu', (e) => {
@@ -126,7 +139,7 @@ function createGrid(xCol, yRow) {
   
 
 
-//ascoltatyore di evento che richiamerà la funzione generate grid
+//bonus .3) ascoltatyore di evento che richiamerà la funzione generate grid
 //in base alla difficoltà che è stata ritornata dalla funzione select difficulty (easy , normal , hard)
 play.addEventListener("click" , function(){
     const getDifficolta = selectDifficulty();
