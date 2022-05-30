@@ -90,14 +90,24 @@ function createGrid(xCol, yRow) {
         }
         
 
-        //bonus .2) non funzionante 
+        //bonus .2) NON funzionante 
         /*
           for(let i = 0 ; i < 16 ; i++){
             let indexBomba = bombe[i];
             cell[indexBomba].classList.add("bomb");
           }
         */
+       
 
+       //bonus .2) FUNZIONANTE 
+          let nodi = campoMinato.childNodes
+          for(let i = 0 ; i < nodi.length ; i++){
+            if(bombe.includes(i)){
+                nodi[i].classList.add("bomb");
+            }
+
+          }
+   
 
 
         }
